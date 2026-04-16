@@ -44,7 +44,10 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.sidebar.markdown("## 📊 FinAgent")
+st.sidebar.markdown(
+    "<h2 style='color:#4C8BF5;'>📊 FinAgent</h2>",
+    unsafe_allow_html=True
+)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Minimal custom CSS – keeps styling clean without overriding Streamlit's theme
