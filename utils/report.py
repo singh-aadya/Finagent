@@ -7,8 +7,9 @@ Now supports:
 - Groq (NEW)
 - Auto fallback if one fails
 """
-import streamlit as st
+
 from __future__ import annotations
+import streamlit as st
 import os
 import textwrap
 import pandas as pd
