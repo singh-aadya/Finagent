@@ -38,11 +38,17 @@ from utils.chatbot import explain_stock_concept
 # ─────────────────────────────────────────────────────────────────────────────
 # Page config  (MUST be the first Streamlit call)
 # ─────────────────────────────────────────────────────────────────────────────
+# st.set_page_config(
+#     page_title="AI Financial Analysis Dashboard",
+#     #page_icon="📈",
+#     layout="wide",
+#     initial_sidebar_state="expanded",
+# )
+
 st.set_page_config(
-    page_title="AI Financial Analysis Dashboard",
-    #page_icon="📈",
-    layout="wide",
-    initial_sidebar_state="expanded",
+    page_title="FinAgent",
+    page_icon="📊",
+    layout="wide"
 )
 
 st.sidebar.markdown(
@@ -210,6 +216,7 @@ with st.spinner("Fetching fundamental metrics…"):
 # ─────────────────────────────────────────────────────────────────────────────
 # Compute indicators
 # ─────────────────────────────────────────────────────────────────────────────
+st.markdown("### 📊 Technical Indicators")
 
 # Normalised prices
 normalised: dict[str, pd.Series] = {}
@@ -293,6 +300,7 @@ if correlation is not None:
 # ─────────────────────────────────────────────────────────────────────────────
 st.divider()
 st.subheader("Charts")
+st.markdown("### 📈 Stock Performance")
 
 # Chart 1 – Normalised prices
 if normalised:
@@ -336,6 +344,9 @@ st.plotly_chart(
 # ─────────────────────────────────────────────────────────────────────────────
 # AI Report
 # ─────────────────────────────────────────────────────────────────────────────
+
+st.markdown("### 🤖 AI Report")
+
 if generate_ai:
     st.divider()
     st.subheader("🤖 AI Generated Financial Report")
