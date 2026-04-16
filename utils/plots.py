@@ -4,7 +4,7 @@ utils/plots.py
 Clean + Styled Plotly charts for AI Financial Dashboard
 """
 
-from **future** import annotations
+from future import annotations
 
 import pandas as pd
 import plotly.graph_objects as go
