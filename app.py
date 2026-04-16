@@ -45,6 +45,16 @@ from utils.chatbot import explain_stock_concept
 #     initial_sidebar_state="expanded",
 # )
 
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+html, body, [class*="css"]  {
+    font-family: 'Inter', sans-serif;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.set_page_config(
     page_title="FinAgent",
     page_icon="📊",
