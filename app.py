@@ -34,6 +34,7 @@ from utils.indicators import normalize_prices, calculate_rsi
 from utils.plots import plot_normalised_prices, plot_rsi, plot_volume
 from utils.report import generate_report
 from utils.chatbot import explain_stock_concept   
+from utils.dashboard_plot import make_dashboard_chart
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Page config  (MUST be the first Streamlit call)
