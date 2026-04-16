@@ -45,6 +45,49 @@ from utils.chatbot import explain_stock_concept
 #     initial_sidebar_state="expanded",
 # )
 
+# st.markdown("""
+# <style>
+# @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+# html, body, [class*="css"]  {
+#     font-family: 'Inter', sans-serif;
+# }
+# </style>
+# """, unsafe_allow_html=True)
+
+# st.set_page_config(
+#     page_title="FinAgent",
+#     page_icon="📊",
+#     layout="wide"
+# )
+
+# st.sidebar.markdown(
+#     "<h2 style='color:#4C8BF5;'>📊 FinAgent</h2>",
+#     unsafe_allow_html=True
+# )
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Minimal custom CSS – keeps styling clean without overriding Streamlit's theme
+# ─────────────────────────────────────────────────────────────────────────────
+# st.markdown(
+#     """
+#     <style>
+#     /* Tighten the default padding */
+#     .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
+#     /* Section headers */
+#     .section-header {
+#         font-size: 1.1rem;
+#         font-weight: 600;
+#         margin-bottom: 0.25rem;
+#         color: #4C8BF5;
+#     }
+#     /* Metric card label */
+#     .metric-label { font-size: 0.78rem; color: #999; }
+#     </style>
+#     """,
+#     unsafe_allow_html=True,
+# )
+
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
@@ -52,41 +95,12 @@ st.markdown("""
 html, body, [class*="css"]  {
     font-family: 'Inter', sans-serif;
 }
+
+h1, h2, h3 {
+    font-weight: 600;
+}
 </style>
 """, unsafe_allow_html=True)
-
-st.set_page_config(
-    page_title="FinAgent",
-    page_icon="📊",
-    layout="wide"
-)
-
-st.sidebar.markdown(
-    "<h2 style='color:#4C8BF5;'>📊 FinAgent</h2>",
-    unsafe_allow_html=True
-)
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Minimal custom CSS – keeps styling clean without overriding Streamlit's theme
-# ─────────────────────────────────────────────────────────────────────────────
-st.markdown(
-    """
-    <style>
-    /* Tighten the default padding */
-    .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
-    /* Section headers */
-    .section-header {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.25rem;
-        color: #4C8BF5;
-    }
-    /* Metric card label */
-    .metric-label { font-size: 0.78rem; color: #999; }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Sidebar – user inputs
