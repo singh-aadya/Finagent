@@ -82,11 +82,11 @@ st.markdown(
 # Sidebar – user inputs
 # ─────────────────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image(
-        "https://img.icons8.com/fluency/96/stock-market.png",
-        width=60,
-    )
-    st.title("Settings")
+    # st.image(
+    #     "https://img.icons8.com/fluency/96/stock-market.png",
+    #     width=60,
+    # )
+    # st.title("Settings")
     st.divider()
 
     # Ticker input
@@ -345,7 +345,7 @@ st.plotly_chart(
 # AI Report
 # ─────────────────────────────────────────────────────────────────────────────
 
-st.markdown("### 🤖 AI Report")
+# st.markdown("### 🤖 AI Report")
 
 if generate_ai:
     st.divider()
