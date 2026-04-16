@@ -156,11 +156,16 @@ GROQ_API_KEY = your_api_key
 ## 📸 Screenshots
 
 * Dashboard with charts
+  <img width="1223" height="537" alt="image" src="https://github.com/user-attachments/assets/4c9cd864-7c61-4a3c-8faa-685573426603" />
+  
 * AI-generated insights
-* Chatbot interface
-* Learn Stocks page
+  <img width="860" height="558" alt="image" src="https://github.com/user-attachments/assets/4875505e-f496-42d0-bbea-6f5b9f9446ca" />
 
-(Add screenshots here)
+* Chatbot interface
+  <img width="1367" height="629" alt="image" src="https://github.com/user-attachments/assets/caac0178-b47a-41f2-9d64-747116cb9aff" />
+
+* Learn Stocks page
+  <img width="1383" height="839" alt="image" src="https://github.com/user-attachments/assets/d4753a2d-c5ec-44ca-a5dc-eac19dd4deba" />
 
 ---
 
@@ -181,13 +186,6 @@ GROQ_API_KEY = your_api_key
 
 This project is for educational purposes only.
 It is NOT financial advice. Always consult a professional before investing.
-
----
-
-## 👤 Author
-
-Aadya
-Engineering Student
 
 ---
 
