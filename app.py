@@ -144,6 +144,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+st.title("📈 AI Financial Analysis Dashboard")
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Sidebar – user inputs
 # ─────────────────────────────────────────────────────────────────────────────
@@ -237,8 +240,7 @@ with st.sidebar:
       st.image(chart_buf, use_container_width=True)
 
     
-      st.title("📈 AI Financial Analysis Dashboard")
-
+      
 if not run_btn:
     st.info(
         "👈  Configure your tickers and date range in the sidebar, "
