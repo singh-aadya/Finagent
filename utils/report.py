@@ -7,7 +7,7 @@ Now supports:
 - Groq (NEW)
 - Auto fallback if one fails
 """
-
+import streamlit as st
 from __future__ import annotations
 import os
 import textwrap
@@ -18,7 +18,9 @@ from datetime import datetime
 # ─────────────────────────────────────────────────────────────────────────────
 # Helpers (unchanged)
 # ─────────────────────────────────────────────────────────────────────────────
-
+def get_key(name):
+    return st.secrets.get(name) or os.getenv(name)
+    
 def _format_fundamentals(df: pd.DataFrame) -> str:
     return df.to_markdown() if not df.empty else "*(No fundamental data available)*"
 
@@ -46,19 +48,32 @@ _SYSTEM_PROMPT = """You are a professional financial analyst...
 # MODEL SELECTION (NEW)
 # ─────────────────────────────────────────────────────────────────────────────
 
+# def _choose_provider(provider: str) -> str:
+#     """Auto-select provider if needed."""
+#     if provider != "auto":
+#         return provider
+
+#     if os.getenv("GROQ_API_KEY"):
+#         return "groq"
+#     if os.getenv("OPENAI_API_KEY"):
+#         return "openai"
+#     if os.getenv("ANTHROPIC_API_KEY"):
+#         return "anthropic"
+
+#     raise EnvironmentError("No API key found in .env")
+
 def _choose_provider(provider: str) -> str:
-    """Auto-select provider if needed."""
     if provider != "auto":
         return provider
 
-    if os.getenv("GROQ_API_KEY"):
+    if get_key("GROQ_API_KEY"):
         return "groq"
-    if os.getenv("OPENAI_API_KEY"):
+    if get_key("OPENAI_API_KEY"):
         return "openai"
-    if os.getenv("ANTHROPIC_API_KEY"):
+    if get_key("ANTHROPIC_API_KEY"):
         return "anthropic"
 
-    raise EnvironmentError("No API key found in .env")
+    raise EnvironmentError("No API key found")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -129,7 +144,8 @@ Today's date: {today}
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _call_groq(user_prompt: str) -> str:
-    api_key = os.getenv("GROQ_API_KEY")
+    #api_key = os.getenv("GROQ_API_KEY")
+    api_key = get_key("GROQ_API_KEY")
     if not api_key:
         raise EnvironmentError("Missing GROQ_API_KEY")
 
@@ -139,6 +155,7 @@ def _call_groq(user_prompt: str) -> str:
         raise ImportError("Install groq: pip install groq")
 
     client = Groq(api_key=api_key)
+    
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
@@ -159,7 +176,8 @@ def _call_groq(user_prompt: str) -> str:
 def _call_openai(model: str, user_prompt: str) -> str:
     from openai import OpenAI
 
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    #client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    client = OpenAI(api_key=get_key("OPENAI_API_KEY"))
 
     response = client.chat.completions.create(
         model=model,
@@ -179,7 +197,8 @@ def _call_openai(model: str, user_prompt: str) -> str:
 def _call_anthropic(model: str, user_prompt: str) -> str:
     import anthropic
 
-    client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    #client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = anthropic.Anthropic(api_key=get_key("ANTHROPIC_API_KEY"))
 
     message = client.messages.create(
         model=model,
