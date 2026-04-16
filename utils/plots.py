@@ -20,15 +20,23 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 # Consistent colour palette – one colour per position in the ticker list
+# _PALETTE = [
+#     "#4C8BF5",  # blue
+#     "#F5A623",  # amber
+#     "#2ECC71",  # green
+#     "#E74C3C",  # red
+#     "#9B59B6",  # purple
+#     "#1ABC9C",  # teal
+#     "#F39C12",  # orange
+#     "#3498DB",  # sky-blue
+# ]
+
 _PALETTE = [
-    "#4C8BF5",  # blue
-    "#F5A623",  # amber
-    "#2ECC71",  # green
-    "#E74C3C",  # red
-    "#9B59B6",  # purple
-    "#1ABC9C",  # teal
-    "#F39C12",  # orange
-    "#3498DB",  # sky-blue
+    "#00E5FF",  # neon cyan
+    "#FFD54F",  # soft yellow
+    "#00FFA3",  # neon green
+    "#FF4C4C",  # red
+    "#B388FF",  # purple
 ]
 
 
@@ -99,7 +107,16 @@ def plot_normalised_prices(
         xaxis_title="Date",
         yaxis_title="Normalised Price Index",
         hovermode="x unified",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        # legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1,
+            bgcolor="rgba(0,0,0,0)",
+            font=dict(size=12)
+        )
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         font=dict(size=13),
@@ -179,7 +196,7 @@ def plot_rsi(
     fig.add_hline(y=overbought, line_dash="dash", line_color="rgba(231,76,60,0.5)", line_width=1)
     fig.add_hline(y=oversold,   line_dash="dash", line_color="rgba(46,204,113,0.5)",  line_width=1)
     fig.add_hline(y=50,         line_dash="dot",  line_color="rgba(180,180,180,0.4)", line_width=1)
-
+    fig.update_traces(line=dict(width=2, shape="spline"))
     fig.update_layout(
         title="RSI (14-Day Relative Strength Index)",
         xaxis_title="Date",
@@ -193,7 +210,7 @@ def plot_rsi(
         margin=dict(t=60, b=40, l=60, r=20),
     )
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, gridcolor="rgba(180,180,180,0.15)")
+    fig.update_yaxes(showgrid=True, gridcolor="rgba(255,255,255,0.05)"")
 
     return fig
 
@@ -249,21 +266,33 @@ def plot_volume(
         colour = _ticker_colour(row_idx - 1)
 
         # Volume bars
+        # fig.add_trace(
+        #     go.Bar(
+        #         x=vol.index,
+        #         y=vol.values,
+        #         name=f"{ticker} Volume",
+        #         marker_color=colour,
+        #         opacity=0.4,
+        #         showlegend=(row_idx == 1),
+        #         hovertemplate=(
+        #             f"<b>{ticker}</b><br>"
+        #             "Date: %{x|%Y-%m-%d}<br>"
+        #             "Volume: %{y:,.0f}<extra></extra>"
+        #         ),
+        #     ),
+        #     row=row_idx, col=1,
+        # )
+
+        # glow layer
         fig.add_trace(
-            go.Bar(
-                x=vol.index,
-                y=vol.values,
-                name=f"{ticker} Volume",
-                marker_color=colour,
-                opacity=0.4,
-                showlegend=(row_idx == 1),
-                hovertemplate=(
-                    f"<b>{ticker}</b><br>"
-                    "Date: %{x|%Y-%m-%d}<br>"
-                    "Volume: %{y:,.0f}<extra></extra>"
-                ),
-            ),
-            row=row_idx, col=1,
+            go.Scatter(
+                x=series.index,
+                y=series.values,
+                mode="lines",
+                line=dict(color=_ticker_colour(idx), width=6),
+                opacity=0.25,
+                showlegend=False
+            )
         )
 
         # 20-day MA line
@@ -273,7 +302,12 @@ def plot_volume(
                 y=ma.values,
                 mode="lines",
                 name=f"{ticker} MA({ma_window})",
-                line=dict(color=colour, width=2, dash="solid"),
+                # line=dict(color=colour, width=2, dash="solid"),
+                line=dict(
+                    color=_ticker_colour(idx),
+                    width=2,
+                    shape="spline"   # smooth curve
+                )
                 hovertemplate=(
                     f"<b>{ticker}</b> MA({ma_window})<br>"
                     "Date: %{x|%Y-%m-%d}<br>"
@@ -286,14 +320,16 @@ def plot_volume(
     fig.update_layout(
         title=f"Trading Volume & {ma_window}-Day Moving Average",
         hovermode="x unified",
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)",
+        # plot_bgcolor="rgba(0,0,0,0)",
+        # paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="#0E1117",
+        paper_bgcolor="#0E1117",
         font=dict(size=13),
         height=250 * n + 80,
         margin=dict(t=60, b=40, l=70, r=20),
         bargap=0.1,
     )
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, gridcolor="rgba(180,180,180,0.15)")
+    fig.update_yaxes(showgrid=True, gridcolor="rgba(255,255,255,0.05)"")
 
     return fig
