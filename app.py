@@ -216,7 +216,7 @@ with st.spinner("Fetching fundamental metrics…"):
 # ─────────────────────────────────────────────────────────────────────────────
 # Compute indicators
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown("### 📊 Technical Indicators")
+# st.markdown("### 📊 Technical Indicators")
 
 # Normalised prices
 normalised: dict[str, pd.Series] = {}
@@ -300,7 +300,7 @@ if correlation is not None:
 # ─────────────────────────────────────────────────────────────────────────────
 st.divider()
 st.subheader("Charts")
-st.markdown("### 📈 Stock Performance")
+# st.markdown("### 📈 Stock Performance")
 
 # Chart 1 – Normalised prices
 if normalised:
