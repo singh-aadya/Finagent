@@ -1,6 +1,10 @@
 import streamlit as st
 from utils.chatbot import explain_stock_concept
 
+if st.button("🗑️ Clear Chat"):
+    st.session_state.chat_history = []
+    st.rerun()
+
 st.set_page_config(page_title="AI Chatbot", layout="wide")
 
 st.title("🤖 AI Stock Assistant")
