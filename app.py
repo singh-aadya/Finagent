@@ -361,6 +361,25 @@ if correlation is not None:
             "Values near +1 = highly correlated; near -1 = inverse; near 0 = uncorrelated."
         )
 
+# ── Step 3: Charts ────────────────────────────────────────
+st.divider()
+st.subheader("📊 Technical Analysis Charts")
+
+# Generate chart
+chart_buf = make_dashboard_chart(
+    h1,                  # history stock 1
+    h2,                  # history stock 2
+    ticker1,             # ticker 1 name
+    ticker2,             # ticker 2 name
+    sd1["pct_change"],   # % change stock 1
+    sd2["pct_change"],   # % change stock 2
+    sd1,                 # metrics stock 1
+    sd2                  # metrics stock 2
+)
+
+# Display chart
+st.image(chart_buf, use_container_width=True)
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Charts
 # ─────────────────────────────────────────────────────────────────────────────
