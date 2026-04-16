@@ -238,7 +238,7 @@ with st.sidebar:
   # ─────────────────────────────────────────────────────────────────────────────
   # Main area – title + placeholder
   # ─────────────────────────────────────────────────────────────────────────────
-  st.title("📈 AI Financial Analysis Dashboard")
+  # st.title("📈 AI Financial Analysis Dashboard")
 
 if not run_btn:
     st.info(
