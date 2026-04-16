@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinAgent — AI-Powered Financial Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#">Fin<span>Agent</span></a>
+      <ul class="nav-links">
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#quickstart">Quick Start</a></li>
+      </ul>
+      <a class="nav-cta" href="#quickstart">Get Started →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-noise"></div>
+
+    <div class="hero-inner">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Open-Source · Two-Agent Architecture · GPT-4o Powered
+      </div>
+
+      <h1 class="hero-title">
+        AI Agents That<br />
+        <em>Think Like</em><br />
+        <span class="hero-title-accent">Financial Analysts</span>
+      </h1>
+
+      <p class="hero-sub">
+        FinAgent uses two specialised AI agents — a <strong>Data Agent</strong> and a
+        <strong>Report Agent</strong> — to automatically fetch market data, compute ratios,
+        and produce institutional-grade equity reports in seconds.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="#quickstart">Run Locally</a>
+        <a class="btn-ghost" href="https://github.com" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <!-- live ticker strip -->
+      <div class="ticker-wrap">
+        <div class="ticker-track">
+          <span class="tick up">AAPL +1.24%</span>
+          <span class="tick dn">NVDA −0.87%</span>
+          <span class="tick up">MSFT +2.11%</span>
+          <span class="tick up">TSLA +3.40%</span>
+          <span class="tick dn">AMD −1.02%</span>
+          <span class="tick up">GOOGL +0.95%</span>
+          <span class="tick up">META +1.78%</span>
+          <span class="tick dn">AMZN −0.34%</span>
+          <span class="tick up">AAPL +1.24%</span>
+          <span class="tick dn">NVDA −0.87%</span>
+          <span class="tick up">MSFT +2.11%</span>
+          <span class="tick up">TSLA +3.40%</span>
+          <span class="tick dn">AMD −1.02%</span>
+          <span class="tick up">GOOGL +0.95%</span>
+          <span class="tick up">META +1.78%</span>
+          <span class="tick dn">AMZN −0.34%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENTS -->
+  <section class="agents" id="agents">
+    <div class="container">
+      <div class="section-label">Two-Agent Architecture</div>
+      <h2 class="section-title">Two Agents. One Goal.</h2>
+      <p class="section-sub">Each agent is a specialised GPT-4o instance with a distinct system prompt, clear role, and scoped responsibility.</p>
+
+      <div class="agents-grid">
+
+        <!-- Agent 1 -->
+        <div class="agent-card agent-data">
+          <div class="agent-num">01</div>
+          <div class="agent-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
+              <rect x="4" y="8" width="40" height="32" rx="3"/>
+              <polyline points="12,28 18,20 24,24 30,14 36,18"/>
+              <circle cx="36" cy="18" r="2" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="agent-tag">Agent 01</div>
+          <h3>Data Agent</h3>
+          <p>Fetches and structures all raw financial data. It downloads price history, computes key ratios, calculates correlations, and builds a clean data summary — ready for analysis.</p>
+          <ul class="agent-caps">
+            <li>Historical price data via yfinance</li>
+            <li>P/E, Forward P/E, ROE, Debt/Equity</li>
+            <li>Normalised price chart generation</li>
+            <li>Correlation coefficient calculation</li>
+            <li>% performance over chosen period</li>
+          </ul>
+          <div class="agent-prompt-preview">
+            <span class="prompt-label">System Role</span>
+            <code>"You are a financial data analyst. Your job is to process the raw data provided and return a structured JSON summary ready for report writing. Be precise and factual."</code>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="agent-arrow">
+          <svg viewBox="0 0 60 60" fill="none" width="60" height="60">
+            <path d="M10 30 H50 M38 18 L50 30 L38 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Passes structured data</span>
+        </div>
+
+        <!-- Agent 2 -->
+        <div class="agent-card agent-report">
+          <div class="agent-num">02</div>
+          <div class="agent-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="36" height="36">
+              <path d="M12 4 H32 L44 16 V44 H12 V4Z"/>
+              <polyline points="32,4 32,16 44,16"/>
+              <line x1="18" y1="24" x2="36" y2="24"/>
+              <line x1="18" y1="30" x2="36" y2="30"/>
+              <line x1="18" y1="36" x2="28" y2="36"/>
+            </svg>
+          </div>
+          <div class="agent-tag">Agent 02</div>
+          <h3>Report Agent</h3>
+          <p>Receives the structured data summary from Agent 01 and writes a complete, professional equity research report in Markdown — with analysis, comparisons, and a future outlook.</p>
+          <ul class="agent-caps">
+            <li>Executive summary & key takeaways</li>
+            <li>Metrics comparison table</li>
+            <li>Ratio explanations in plain English</li>
+            <li>Correlation & risk analysis</li>
+            <li>Future scenario analysis</li>
+          </ul>
+          <div class="agent-prompt-preview">
+            <span class="prompt-label">System Role</span>
+            <code>"You are a senior equity research analyst. Write a professional financial report in Markdown using only the data provided. Include a table, metric explanations, and a future outlook."</code>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-label">Flow</div>
+      <h2 class="section-title">How It Works</h2>
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Enter Your Inputs</h4>
+            <p>Open the Streamlit app in your browser. Enter two stock tickers, your OpenAI API key, and a time period.</p>
+          </div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Data Agent Activates</h4>
+            <p>Agent 01 fetches live price data and financial metrics from Yahoo Finance. It computes correlations, normalises prices, and assembles a structured JSON data package.</p>
+          </div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Report Agent Writes</h4>
+            <p>Agent 02 receives the data package and writes a full institutional-grade equity report with tables, analysis, and outlook — in seconds.</p>
+          </div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Download & Share</h4>
+            <p>The report and chart appear instantly in the UI. Download as <code>.md</code> and <code>.png</code> files with one click.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="stack" id="stack">
+    <div class="container">
+      <div class="section-label">Tech Stack</div>
+      <h2 class="section-title">Built With</h2>
+
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-icon">🐍</div>
+          <h4>Python</h4>
+          <p>All backend logic written in Python 3.10+</p>
+        </div>
+        <div class="stack-card">
+          <div class="stack-icon">⚡</div>
+          <h4>Streamlit</h4>
+          <p>Interactive web frontend — no HTML/CSS needed</p>
+        </div>
+        <div class="stack-card">
+          <div class="stack-icon">📊</div>
+          <h4>yfinance</h4>
+          <p>Free real-time stock data from Yahoo Finance</p>
+        </div>
+        <div class="stack-card">
+          <div class="stack-icon">🤖</div>
+          <h4>GPT-4o</h4>
+          <p>Powers both AI agents via the OpenAI API</p>
+        </div>
+        <div class="stack-card">
+          <div class="stack-icon">🐼</div>
+          <h4>pandas</h4>
+          <p>Data wrangling and tabular analysis</p>
+        </div>
+        <div class="stack-card">
+          <div class="stack-icon">📈</div>
+          <h4>matplotlib</h4>
+          <p>Normalised price chart generation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section class="quickstart" id="quickstart">
+    <div class="container">
+      <div class="section-label">Quick Start</div>
+      <h2 class="section-title">Run in 3 Steps</h2>
+
+      <div class="qs-blocks">
+        <div class="qs-block">
+          <div class="qs-step-label">Step 1 — Install</div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+              <span class="code-filename">terminal</span>
+            </div>
+            <pre><code><span class="c"># Clone or unzip the project</span>
+cd finagent
+
+<span class="c"># Install all dependencies</span>
+pip install -r requirements.txt</code></pre>
+          </div>
+        </div>
+
+        <div class="qs-block">
+          <div class="qs-step-label">Step 2 — Launch</div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+              <span class="code-filename">terminal</span>
+            </div>
+            <pre><code><span class="c"># Start the Streamlit app</span>
+streamlit run app.py
+
+<span class="c"># Opens at http://localhost:8501</span></code></pre>
+          </div>
+        </div>
+
+        <div class="qs-block">
+          <div class="qs-step-label">Step 3 — Analyse</div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+              <span class="code-filename">browser</span>
+            </div>
+            <pre><code><span class="c"># In the sidebar:</span>
+API Key  → your OpenAI key
+Stock 1  → AMD
+Stock 2  → NVDA
+Period   → 6mo
+
+<span class="c"># Click: 🚀 Generate Report</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="disclaimer">
+    <div class="container">
+      <p>⚠️ FinAgent is for <strong>educational and research purposes only</strong>. It does not constitute financial advice. Always consult a qualified financial professional before making investment decisions.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="logo" href="#">Fin<span>Agent</span></a>
+          <p>Open-source AI financial analysis platform.<br/>Two agents. Infinite insight.</p>
+        </div>
+        <div class="footer-links">
+          <h5>Project</h5>
+          <a href="#agents">Agents</a>
+          <a href="#how">How It Works</a>
+          <a href="#stack">Stack</a>
+          <a href="#quickstart">Quick Start</a>
+        </div>
+        <div class="footer-links">
+          <h5>Resources</h5>
+          <a href="https://platform.openai.com" target="_blank">OpenAI Platform</a>
+          <a href="https://streamlit.io" target="_blank">Streamlit Docs</a>
+          <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Released for academic purposes. MIT License.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
