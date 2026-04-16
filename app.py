@@ -209,11 +209,36 @@ with st.sidebar:
 
     st.divider()
     run_btn = st.button("🚀  Run Analysis", type="primary", use_container_width=True)
+    if run_btn:
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main area – title + placeholder
-# ─────────────────────────────────────────────────────────────────────────────
-st.title("📈 AI Financial Analysis Dashboard")
+      # fetch data
+      h1, m1 = fetch_stock(ticker1, period)
+      h2, m2 = fetch_stock(ticker2, period)
+  
+      # compute metrics
+      sd1 = run_data_agent(...)
+      sd2 = run_data_agent(...)
+  
+      # ✅ PUT CHART HERE
+      st.divider()
+      st.subheader("📊 Technical Analysis Charts")
+  
+      chart_buf = make_dashboard_chart(
+          h1,
+          h2,
+          ticker1,
+          ticker2,
+          sd1["pct_change"],
+          sd2["pct_change"],
+          sd1,
+          sd2
+      )
+  
+      st.image(chart_buf, use_container_width=True)
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Main area – title + placeholder
+  # ─────────────────────────────────────────────────────────────────────────────
+  st.title("📈 AI Financial Analysis Dashboard")
 
 if not run_btn:
     st.info(
@@ -361,24 +386,24 @@ if correlation is not None:
             "Values near +1 = highly correlated; near -1 = inverse; near 0 = uncorrelated."
         )
 
-# ── Step 3: Charts ────────────────────────────────────────
-st.divider()
-st.subheader("📊 Technical Analysis Charts")
+# # ── Step 3: Charts ────────────────────────────────────────
+# st.divider()
+# st.subheader("📊 Technical Analysis Charts")
 
-# Generate chart
-chart_buf = make_dashboard_chart(
-    h1,                  # history stock 1
-    h2,                  # history stock 2
-    ticker1,             # ticker 1 name
-    ticker2,             # ticker 2 name
-    sd1["pct_change"],   # % change stock 1
-    sd2["pct_change"],   # % change stock 2
-    sd1,                 # metrics stock 1
-    sd2                  # metrics stock 2
-)
+# # Generate chart
+# chart_buf = make_dashboard_chart(
+#     h1,                  # history stock 1
+#     h2,                  # history stock 2
+#     ticker1,             # ticker 1 name
+#     ticker2,             # ticker 2 name
+#     sd1["pct_change"],   # % change stock 1
+#     sd2["pct_change"],   # % change stock 2
+#     sd1,                 # metrics stock 1
+#     sd2                  # metrics stock 2
+# )
 
-# Display chart
-st.image(chart_buf, use_container_width=True)
+# # Display chart
+# st.image(chart_buf, use_container_width=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Charts
