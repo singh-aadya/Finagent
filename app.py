@@ -39,10 +39,12 @@ from utils.report import generate_report
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="AI Financial Analysis Dashboard",
-    page_icon="📈",
+    #page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+st.sidebar.markdown("## 📊 FinAgent")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Minimal custom CSS – keeps styling clean without overriding Streamlit's theme
