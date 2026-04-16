@@ -235,10 +235,9 @@ with st.sidebar:
       )
   
       st.image(chart_buf, use_container_width=True)
-  # ─────────────────────────────────────────────────────────────────────────────
-  # Main area – title + placeholder
-  # ─────────────────────────────────────────────────────────────────────────────
-  # st.title("📈 AI Financial Analysis Dashboard")
+
+    
+      st.title("📈 AI Financial Analysis Dashboard")
 
 if not run_btn:
     st.info(
