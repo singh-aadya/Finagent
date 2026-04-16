@@ -33,6 +33,7 @@ from utils.data import fetch_data, fetch_fundamentals, get_ticker_name
 from utils.indicators import normalize_prices, calculate_rsi
 from utils.plots import plot_normalised_prices, plot_rsi, plot_volume
 from utils.report import generate_report
+from utils.chatbot import explain_stock_concept   
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Page config  (MUST be the first Streamlit call)
@@ -391,19 +392,33 @@ if generate_ai:
 st.markdown("---")
 st.subheader("💬 Ask AI (Learn Stocks Easily)")
 
+# Initialize chat
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Show chat history
+# Display previous messages
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# User input
+# Input box
 user_input = st.chat_input("Ask anything about stocks...")
 
 if user_input:
+    # Store user message
     st.session_state.messages.append({"role": "user", "content": user_input})
+
+    with st.chat_message("user"):
+        st.markdown(user_input)
+
+    # Generate response
+    response = explain_stock_concept(user_input)
+
+    # Store bot response
+    st.session_state.messages.append({"role": "assistant", "content": response})
+
+    with st.chat_message("assistant"):
+        st.markdown(response)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Footer
