@@ -34,7 +34,6 @@ from utils.indicators import normalize_prices, calculate_rsi
 from utils.plots import plot_normalised_prices, plot_rsi, plot_volume
 from utils.report import generate_report
 from utils.chatbot import explain_stock_concept   
-from utils.dashboard_plot import make_dashboard_chart
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Page config  (MUST be the first Streamlit call)
@@ -144,9 +143,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
-st.title("📈 AI Financial Analysis Dashboard")
-
 # ─────────────────────────────────────────────────────────────────────────────
 # Sidebar – user inputs
 # ─────────────────────────────────────────────────────────────────────────────
@@ -212,35 +208,12 @@ with st.sidebar:
 
     st.divider()
     run_btn = st.button("🚀  Run Analysis", type="primary", use_container_width=True)
-    if run_btn:
 
-      # fetch data
-      h1, m1 = fetch_stock(ticker1, period)
-      h2, m2 = fetch_stock(ticker2, period)
-  
-      # compute metrics
-      sd1 = run_data_agent(...)
-      sd2 = run_data_agent(...)
-  
-      # ✅ PUT CHART HERE
-      st.divider()
-      st.subheader("📊 Technical Analysis Charts")
-  
-      chart_buf = make_dashboard_chart(
-          h1,
-          h2,
-          ticker1,
-          ticker2,
-          sd1["pct_change"],
-          sd2["pct_change"],
-          sd1,
-          sd2
-      )
-  
-      st.image(chart_buf, use_container_width=True)
+# ─────────────────────────────────────────────────────────────────────────────
+# Main area – title + placeholder
+# ─────────────────────────────────────────────────────────────────────────────
+st.title("📈 AI Financial Analysis Dashboard")
 
-    
-      
 if not run_btn:
     st.info(
         "👈  Configure your tickers and date range in the sidebar, "
@@ -386,25 +359,6 @@ if correlation is not None:
             "Pearson correlation of daily closing prices over the selected period. "
             "Values near +1 = highly correlated; near -1 = inverse; near 0 = uncorrelated."
         )
-
-# # ── Step 3: Charts ────────────────────────────────────────
-# st.divider()
-# st.subheader("📊 Technical Analysis Charts")
-
-# # Generate chart
-# chart_buf = make_dashboard_chart(
-#     h1,                  # history stock 1
-#     h2,                  # history stock 2
-#     ticker1,             # ticker 1 name
-#     ticker2,             # ticker 2 name
-#     sd1["pct_change"],   # % change stock 1
-#     sd2["pct_change"],   # % change stock 2
-#     sd1,                 # metrics stock 1
-#     sd2                  # metrics stock 2
-# )
-
-# # Display chart
-# st.image(chart_buf, use_container_width=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Charts
