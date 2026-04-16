@@ -88,17 +88,58 @@ from utils.chatbot import explain_stock_concept
 #     unsafe_allow_html=True,
 # )
 
+# st.markdown("""
+# <style>
+# @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+# html, body, [class*="css"]  {
+#     font-family: 'Inter', sans-serif;
+# }
+
+# h1, h2, h3 {
+#     font-weight: 600;
+# }
+# </style>
+# """, unsafe_allow_html=True)
+
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  html, body, [class*="css"] { font-family: 'JetBrains Mono', monospace; }
+  h1, h2, h3 { font-family: 'Syne', sans-serif !important; letter-spacing: -1px; }
 
-html, body, [class*="css"]  {
-    font-family: 'Inter', sans-serif;
-}
+  .stButton > button {
+    background: #00d4ff; color: #080c10;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    border: none; border-radius: 4px;
+    padding: 10px 28px; font-size: 15px;
+    transition: opacity .2s; width: 100%;
+  }
+  .stButton > button:hover { opacity: .85; color: #080c10; }
 
-h1, h2, h3 {
-    font-weight: 600;
-}
+  div[data-testid="stSidebar"] { background: #0d1117; border-right: 1px solid #1e2d3d; }
+
+  .agent-badge {
+    display: inline-block; padding: 3px 14px; border-radius: 100px;
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 8px;
+  }
+  .badge-01 { background: rgba(0,212,255,.12); color: #00d4ff; border: 1px solid rgba(0,212,255,.3); }
+  .badge-02 { background: rgba(240,192,64,.12); color: #f0c040; border: 1px solid rgba(240,192,64,.3); }
+
+  .signal-buy  { color: #00e5a0; font-weight: 700; font-size: 22px; }
+  .signal-sell { color: #ff4d6a; font-weight: 700; font-size: 22px; }
+  .signal-hold { color: #f0c040; font-weight: 700; font-size: 22px; }
+
+  .metric-card {
+    background: #141d26; border: 1px solid #1e2d3d;
+    border-radius: 8px; padding: 16px; text-align: center;
+  }
+  .free-banner {
+    background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.25);
+    border-radius: 6px; padding: 10px 16px; margin-bottom: 16px;
+    color: #00e5a0; font-size: 12px;
+  }
 </style>
 """, unsafe_allow_html=True)
 
