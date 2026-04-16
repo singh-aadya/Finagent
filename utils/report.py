@@ -39,8 +39,14 @@ def _format_correlation(corr: pd.DataFrame) -> str:
 # SYSTEM PROMPT (same)
 # ─────────────────────────────────────────────────────────────────────────────
 
-_SYSTEM_PROMPT = """You are a professional financial analyst...
-(keep your original system prompt here unchanged)
+_SYSTEM_PROMPT = """
+You are a professional financial analyst and report writer.
+
+You must:
+- Provide clear analysis
+- Compare stocks
+- Include disclaimer
+- Use markdown format
 """
 
 
